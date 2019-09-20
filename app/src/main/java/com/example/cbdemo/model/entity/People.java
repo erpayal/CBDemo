@@ -144,7 +144,7 @@ public class People {
                 .setDefaultRequestOptions(new RequestOptions()
                         .circleCrop())
                 .load(imageURL)
-                .placeholder(R.drawable.ic_launcher_foreground)
+                .placeholder(R.drawable.ic_launcher_background)
                 .into(imageView);
     }
 }
