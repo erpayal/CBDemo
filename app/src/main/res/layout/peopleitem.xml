@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+        <variable
+            name="listmodel"
+            type="com.example.cbdemo.model.entity.People" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvpeople"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:screenReaderFocusable="true">
+            <ImageView
+                android:id="@+id/ivPic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"
+                bind:avatar="@{listmodel.avatar}"
+                bind:layout_constraintBottom_toBottomOf="parent"
+                bind:layout_constraintStart_toStartOf="parent"
+                bind:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="8dp"
+                android:contentDescription="@string/userimage"/>
+
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivPic"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="4dp"
+                android:text="@{listmodel.firstName.concat(@string/space).concat(listmodel.lastName)}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                bind:layout_constraintTop_toTopOf="parent"
+                tools:text="Morris"
+                android:contentDescription="@{listmodel.firstName.concat(@string/space).concat(listmodel.lastName)}"
+                />
+
+            <TextView
+                android:id="@+id/tvJobTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvFullName"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="2dp"
+                android:text="@{listmodel.jobTitle}"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                bind:layout_constraintTop_toBottomOf="@+id/tvFullName"
+                tools:text="Software Developer"
+                android:contentDescription="@{listmodel.jobTitle}"/>
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvJobTitle"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="2dp"
+                android:text="@{`Email - ` + listmodel.email}"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                bind:layout_constraintTop_toBottomOf="@+id/tvJobTitle"
+                tools:text="morris@gmail.com"
+                android:contentDescription="@{`Email - ` + listmodel.email}"></TextView>
+
+            <TextView
+                android:id="@+id/tvPhoneNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvFullName"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="2dp"
+                android:text="@{`Phone - ` + listmodel.phone}"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                bind:layout_constraintTop_toBottomOf="@+id/tvEmail"
+                tools:text="+44123456790"
+                android:contentDescription="@{`Phone - ` + listmodel.phone}"
+               />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

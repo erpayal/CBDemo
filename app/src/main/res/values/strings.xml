@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CBDemo</string>
+    <string name="space"> </string>
+    <string name="people">People</string>
+    <string name="rooms">Rooms</string>
+    <string name="available">Room Available</string>
+    <string name="not_available">Room Not Available</string>
+    <string name="userimage">UserImage</string>
+
+
+</resources>

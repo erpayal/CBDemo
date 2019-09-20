@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="roommodel"
+            type="com.example.cbdemo.model.entity.Rooms" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvroom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:screenReaderFocusable="true">
+
+
+            <TextView
+                android:id="@+id/tvRoomName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:text="@{`Room Name - ` +roommodel.name}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                bind:layout_constraintTop_toTopOf="parent"
+                tools:text="Room Pixel"
+                android:contentDescription="@{`Room Name - ` +roommodel.name}"
+                />
+
+            <TextView
+                android:id="@+id/tvRoomStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRoomName"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:padding="4dp"
+
+                android:text="@{roommodel.isOccupied? @string/available:@string/not_available}"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                bind:layout_constraintTop_toBottomOf="@+id/tvRoomName"
+                tools:text="No"
+                android:contentDescription="@{roommodel.isOccupied? @string/available:@string/not_available}"
+                />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
